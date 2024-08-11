@@ -1,0 +1,31 @@
+{
+  "name": "orm-example-project",
+  "version": "1.0.0",
+  "description": "Example of usage of my ORM system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MyroslavShymon/ORM-Example-Project.git"
+  },
+  "keywords": [
+    "ORM",
+    "ORM-CLI"
+  ],
+  "author": "Myroslav Shymkiv <myroslavshymon@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/MyroslavShymon/ORM-Example-Project/issues"
+  },
+  "homepage": "https://github.com/MyroslavShymon/ORM-Example-Project#readme",
+  "devDependencies": {
+    "@types/node": "^22.2.0",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@myroslavshymon/orm": "^1.0.3"
+  }
+}

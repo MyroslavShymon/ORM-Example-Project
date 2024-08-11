@@ -1,0 +1,38 @@
+Executed in 8.403599999999642 ms, TYPE: Regular Query, SQL: CREATE VIEW allUsersView AS 
+SELECT * FROM users;, PARAMS: []
+Executed in 3.4566000000013446 ms, TYPE: Regular Query, SQL: SELECT task_id, title, status 
+FROM tasks 
+WHERE is_completed = $1 AND price > $2 
+ORDER BY due_date ASC;, PARAMS: [false,50]
+Executed in 2.1837999999988824 ms, TYPE: Regular Query, SQL: SELECT user_id, username FROM users 
+WHERE username IN ($1);, PARAMS: ["SELECT username FROM users \nWHERE is_active = ?"]
+Executed in 1.9373999999988882 ms, TYPE: Regular Query, SQL: SELECT users.username, sections.name FROM users 
+LEFT JOIN sections ON users.user_id = sections.user_id 
+ORDER BY users.username ASC;, PARAMS: []
+Executed in 0.9081000000005588 ms, TYPE: Regular Query, SQL: SELECT user_id, username FROM users 
+WHERE is_active = $1 
+ UNION 
+ SELECT user_id, username FROM users 
+WHERE is_active = $2;, PARAMS: [true,false]
+Executed in 0.8283999999985099 ms, TYPE: Regular Query, SQL: SELECT user_id, username FROM users 
+WHERE is_active = $1 
+ UNION 
+ SELECT user_id, username FROM users 
+WHERE is_active = $2 UNION ALL 
+ SELECT user_id, username FROM users 
+WHERE is_active = $1;, PARAMS: [true,false]
+Executed in 0.9699000000000524 ms, TYPE: Regular Query, SQL: SELECT SUM(price) AS total_price FROM tasks;, PARAMS: []
+Executed in 0.9055000000007567 ms, TYPE: Regular Query, SQL: SELECT user_id, COUNT(*) AS task_count FROM tasks 
+GROUP BY user_id 
+HAVING COUNT(*) > $1;, PARAMS: [5]
+Executed in 0.7692999999999302 ms, TYPE: Regular Query, SQL: SELECT user_id, COUNT(*) AS task_count FROM tasks 
+GROUP BY user_id;, PARAMS: []
+Executed in 1.1225000000013097 ms, TYPE: Regular Query, SQL: UPDATE tasks
+                SET is_completed = $1   WHERE task_id = $2;, PARAMS: [true,1]
+Executed in 0.6257000000005064 ms, TYPE: Regular Query, SQL: DELETE FROM tasks 
+WHERE title = $1;, PARAMS: ["Завдання 2"]
+Executed in 1.3736000000008062 ms, TYPE: Regular Query, SQL: INSERT INTO tasks (task_id, title, description, is_completed, due_date, price)
+                VALUES ($1, $2, $3, $4, $5, $6);, PARAMS: [111,"Новий таск","Опис нового таску",false,"2024-12-31",100.5]
+Executed in 3.6142999999992753 ms, TYPE: Cache Query, SQL: SELECT user_id, username, email 
+FROM users 
+ORDER BY username ASC;, PARAMS: []
